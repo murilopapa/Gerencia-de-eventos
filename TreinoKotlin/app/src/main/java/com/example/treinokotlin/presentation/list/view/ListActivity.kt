@@ -15,16 +15,14 @@ class ListActivity : AppCompatActivity() {
 
     private val presenter: EventListPresenter by inject()
     private val eventListAdapter = EventListAdapter()
+
     override fun onCreate(savedInstantState: Bundle?) {
         super.onCreate(savedInstantState)
         setContentView(R.layout.activity_list)
         presenter.getEvents()
         observeChanges()
         setupListeners()
-        rvListEvent.apply {
-            adapter = eventListAdapter
-            layoutManager = LinearLayoutManager(this@ListActivity)
-        }
+        setupRecyclerView()
     }
 
     private fun observeChanges() {
@@ -41,4 +39,10 @@ class ListActivity : AppCompatActivity() {
         }
     }
 
+    private fun setupRecyclerView() {
+        rvListEvent.apply {
+            adapter = eventListAdapter
+            layoutManager = LinearLayoutManager(this@ListActivity)
+        }
+    }
 }

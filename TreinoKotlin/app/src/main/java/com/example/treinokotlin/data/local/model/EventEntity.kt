@@ -1,8 +1,9 @@
-package com.example.treinokotlin.data.model
+package com.example.treinokotlin.data.local.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import com.example.treinokotlin.Event
+import com.example.treinokotlin.model.Event
+import java.io.Serializable
 
 @Entity
 data class EventEntity(
@@ -11,7 +12,7 @@ data class EventEntity(
     val name: String,
     val date: String,
     val local: String,
-    val description: String)
+    val description: String):Serializable
 
 fun List<EventEntity>.toEvent(): List<Event> =
     map {

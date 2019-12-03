@@ -1,10 +1,9 @@
-package com.example.treinokotlin.data.dataSource
+package com.example.treinokotlin.data.local.dataSource
 
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
-import androidx.room.Update
-import com.example.treinokotlin.data.model.EventEntity
+import com.example.treinokotlin.data.local.model.EventEntity
 
 @Dao
 interface EventEntityDao {
@@ -16,7 +15,7 @@ interface EventEntityDao {
     fun add(vararg event: EventEntity)
 
     @Query("DELETE FROM EventEntity")
-    fun removeall()
+    fun removeAll()
 
     @Insert
     fun addFromAPI(returnValue: List<EventEntity>)

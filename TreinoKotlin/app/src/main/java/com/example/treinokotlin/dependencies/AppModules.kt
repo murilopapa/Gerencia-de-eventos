@@ -1,7 +1,7 @@
 package com.example.treinokotlin.dependencies
 
 import androidx.room.Room
-import com.example.treinokotlin.data.database.AppDataBase
+import com.example.treinokotlin.data.local.database.AppDataBase
 import com.example.treinokotlin.data.repository.events.EventsRepository
 import com.example.treinokotlin.domain.usecases.EventsUseCase
 import com.example.treinokotlin.presentation.list.presenter.EventListPresenter

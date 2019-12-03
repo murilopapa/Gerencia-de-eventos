@@ -1,7 +1,7 @@
 package com.example.treinokotlin.presentation.list.presenter
 
 import androidx.lifecycle.MutableLiveData
-import com.example.treinokotlin.Event
+import com.example.treinokotlin.model.Event
 import com.example.treinokotlin.domain.usecases.EventsUseCase
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers.IO

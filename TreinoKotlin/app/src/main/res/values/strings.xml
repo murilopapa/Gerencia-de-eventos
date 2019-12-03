@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">TreinoKotlin</string>
+
+    <!--ACTIVITY LIST-->
+    <string name="clear">Clear</string>
+
+    <!--ACTIVITY MAIN-->
+    <string name="edName">Name</string>
+    <string name="edLocal">Local</string>
+    <string name="edDate">Date</string>
+    <string name="edDescription">Description</string>
+    <string name="btnSubmit">Submit</string>
+    <string name="btnNextPage">Next Page</string>
+
 </resources>

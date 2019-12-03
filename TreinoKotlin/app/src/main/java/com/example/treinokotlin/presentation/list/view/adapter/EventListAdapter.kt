@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.treinokotlin.Event
+import com.example.treinokotlin.model.Event
 import com.example.treinokotlin.R
 import kotlinx.android.synthetic.main.event_item.view.*
 

@@ -1,6 +1,6 @@
 package com.example.treinokotlin.domain.usecases
 
-import com.example.treinokotlin.Event
+import com.example.treinokotlin.model.Event
 import com.example.treinokotlin.data.repository.events.EventsRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -13,8 +13,11 @@ class EventsUseCase(
         withContext(Dispatchers.IO) {
             repository.getEvents()
         }
+
     suspend fun removeAllEvents() {
-        repository.removeAllEvents()
+        withContext(Dispatchers.IO) {
+            repository.removeAllEvents()
+        }
     }
 
 }
