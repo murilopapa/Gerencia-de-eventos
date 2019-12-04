@@ -8,7 +8,7 @@ import java.io.Serializable
 @Entity
 data class EventEntity(
     @PrimaryKey(autoGenerate = true)
-    val id: Long = 0,
+    val id: Long=0,
     val name: String,
     val date: String,
     val local: String,
