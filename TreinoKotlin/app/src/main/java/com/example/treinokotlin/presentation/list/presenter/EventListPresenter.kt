@@ -15,12 +15,7 @@ class EventListPresenter(private val eventsUseCase: EventsUseCase) {
         CoroutineScope(IO).launch {
             eventsLiveData.postValue(Resource.loading())
             eventsUseCase.getAllEvents().let {
-                if (it.isNullOrEmpty()) {
-                    eventsLiveData.postValue(Resource.error())
-
-                } else {
-                    eventsLiveData.postValue(Resource.success(it))
-                }
+                eventsLiveData.postValue(Resource.success(it))
             }
         }
 

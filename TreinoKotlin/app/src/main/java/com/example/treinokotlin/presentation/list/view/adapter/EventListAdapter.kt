@@ -21,35 +21,34 @@ class EventListAdapter : RecyclerView.Adapter<EventListAdapter.ViewHolder>() {
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val event = data[position]
-        holder.name.text = event.name
-        holder.date.text = event.date
-        holder.local.text = event.local
-        holder.description.text = event.description
+        holder.apply {
+            name.text = event.name
+            date.text = event.date
+            local.text = event.local
+            description.text = event.description
+
+        }
 
     }
 
     override fun getItemCount(): Int = data.size
 
-    override fun getItemViewType(position: Int) =
-        if (position == 0) {
-            1
-        } else {
-            0
-        }
+    override fun getItemViewType(position: Int) = if (position == 0) 1 else 0
 
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder =
         if (viewType == 1) {
-            val view = LayoutInflater.from(parent.context)
-                .inflate(R.layout.event_item_bigger, parent, false)
-            return ViewHolder(view)
+            ViewHolder(
+                LayoutInflater.from(parent.context)
+                    .inflate(R.layout.event_item_bigger, parent, false)
+            )
         } else {
-            val view =
-                LayoutInflater.from(parent.context).inflate(R.layout.event_item, parent, false)
-            return ViewHolder(view)
+            ViewHolder(
+                LayoutInflater.from(parent.context)
+                    .inflate(R.layout.event_item, parent, false)
+            )
         }
 
-    }
 
     class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val name = itemView.event_item_name

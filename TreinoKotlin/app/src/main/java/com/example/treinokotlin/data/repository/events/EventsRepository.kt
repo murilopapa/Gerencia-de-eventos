@@ -16,7 +16,7 @@ class EventsRepository(
     private val eventRemoteDataSource: EventRemoteDataSource
 ) {
 
-    suspend fun getEvents(): List<Event>? =
+    suspend fun getEvents(): List<Event> =
         withContext(Dispatchers.IO) {
             if (entityEventDao.all().isEmpty()) {
                 println("Empty local database")
@@ -27,6 +27,8 @@ class EventsRepository(
                 wsEventList?.let { eventWsList ->
                     entityEventDao.addFromAPI(eventWsList.toEntityEvent())
                     eventWsList.toEvent()
+                }?: run {
+                    emptyList<Event>()
                 }
 
 
