@@ -21,7 +21,9 @@ class ListActivity : AppCompatActivity() {
     override fun onCreate(savedInstantState: Bundle?) {
         super.onCreate(savedInstantState)
         setContentView(R.layout.activity_list)
+
         presenter.getEvents()
+
         observeChanges()
         setupListeners()
         setupRecyclerView()
@@ -32,17 +34,17 @@ class ListActivity : AppCompatActivity() {
             when (it?.status) {
                 Status.SUCCESS -> {
                     pbItens.visibility = View.GONE
+                    Toast.makeText(this, "Data success", Toast.LENGTH_SHORT).show()
                     it.data?.let { eventList ->
                         eventListAdapter.setData(eventList)
                     }
-                    Toast.makeText(this, "Data success",Toast.LENGTH_SHORT).show()
                 }
                 Status.ERROR -> {
-                    Toast.makeText(this, "Data error",Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Data error", Toast.LENGTH_SHORT).show()
                 }
                 Status.LOADING -> {
                     pbItens.visibility = View.VISIBLE
-                    Toast.makeText(this, "Data loading",Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Data loading", Toast.LENGTH_SHORT).show()
                 }
             }
 

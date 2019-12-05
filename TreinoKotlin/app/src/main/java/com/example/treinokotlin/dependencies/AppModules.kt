@@ -2,6 +2,8 @@ package com.example.treinokotlin.dependencies
 
 import androidx.room.Room
 import com.example.treinokotlin.data.local.database.AppDataBase
+import com.example.treinokotlin.data.remote.WebServiceClient
+import com.example.treinokotlin.data.remote.dataSource.EventRemoteDataSource
 import com.example.treinokotlin.data.repository.events.EventsRepository
 import com.example.treinokotlin.domain.usecases.EventsUseCase
 import com.example.treinokotlin.presentation.list.presenter.EventListPresenter
@@ -28,16 +30,24 @@ val presenterModules = module {
     }
 }
 val repositoryModules = module {
-    single { EventsRepository(get()) }
+    single { EventsRepository(get(), get()) }
 }
 val useCaseModules = module {
     single { EventsUseCase(get()) }
 }
 
+val dataSourceModules = module {
+    single { EventRemoteDataSource(get())}
+}
 
+val webServiceModules = module {
+    single { WebServiceClient().webService }
+}
 val applicationModules = listOf(
     presenterModules,
     useCaseModules,
     repositoryModules,
-    databaseModules
+    databaseModules,
+    webServiceModules,
+    dataSourceModules
 )

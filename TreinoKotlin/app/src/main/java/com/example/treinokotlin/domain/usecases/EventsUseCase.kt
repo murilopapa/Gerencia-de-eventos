@@ -9,7 +9,7 @@ class EventsUseCase(
     private val repository: EventsRepository
 ) {
 
-    suspend fun getAllEvents(): List<Event> =
+    suspend fun getAllEvents(): List<Event>? =
         withContext(Dispatchers.IO) {
             repository.getEvents()
         }
