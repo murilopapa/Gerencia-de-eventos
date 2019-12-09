@@ -11,7 +11,9 @@ class EventsUseCase(
 
     suspend fun getAllEvents(): List<Event> =
         withContext(Dispatchers.IO) {
-            repository.getEvents()
+            repository.getEvents().data?.let {
+                it
+            } ?: emptyList()
         }
 
     suspend fun removeAllEvents() {

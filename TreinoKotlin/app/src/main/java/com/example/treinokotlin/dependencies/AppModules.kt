@@ -37,7 +37,7 @@ val useCaseModules = module {
 }
 
 val dataSourceModules = module {
-    single { EventRemoteDataSource(get())}
+    single { EventRemoteDataSource(get()) }
 }
 
 val webServiceModules = module {
